@@ -1,118 +1,19 @@
-import 'dart:math';
+import 'dart:math' show pi;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animation/football_pitch_painter/constants/football_pitch_colors.dart';
 
-class Sporty extends StatelessWidget {
-  const Sporty({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
-    return Scaffold(
-      backgroundColor: const Color(0xff1B1E25),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: width,
-            height: height / 3,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                ListView.builder(
-                  itemCount: 15,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (_, index) {
-                    return Container(
-                      width: width * 0.066,
-                      height: height / 3,
-                      decoration: BoxDecoration(
-                        color: (index % 2 == 0)
-                            ? _darkFieldColor
-                            : _lightFieldColor,
-                        border: Border.all(
-                          color: (index % 2 == 0)
-                              ? _darkFieldColor
-                              : _lightFieldColor,
-                        ),
-                      ),
-                    );
-                  },
-                ),
-                Center(
-                  child: Container(
-                    padding: const EdgeInsets.all(15),
-                    child: CustomPaint(
-                      size: Size((width - 10), ((height / 3) - 10)),
-                      painter: SportyFieldPainter(),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: 15,
-                  left: width / 2 - 47,
-                  right: width / 2 - 47,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: Container(
-                      width: 75,
-                      padding: const EdgeInsets.all(2),
-                      decoration: const BoxDecoration(color: Colors.black),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "2nd",
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: _whiteFieldColor,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 5),
-                            child: Container(
-                              width: 1,
-                              height: 20,
-                              color: _whiteFieldColor,
-                            ),
-                          ),
-                          const Text(
-                            "87:16",
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: _whiteFieldColor,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class SportyFieldPainter extends CustomPainter {
+class PitchPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..strokeWidth = 1
-      ..color = _lineFieldColor
+      ..color = lineFieldColor
       ..style = PaintingStyle.stroke;
 
     Paint filledPaint = Paint()
       ..strokeWidth = 1
-      ..color = _lineFieldColor
+      ..color = lineFieldColor
       ..style = PaintingStyle.fill;
 
     /// This is the field border
@@ -212,8 +113,3 @@ class SportyFieldPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
-
-const Color _lightFieldColor = Color(0xff228842);
-const Color _darkFieldColor = Color(0xff147F35);
-const Color _lineFieldColor = Color(0xff98CBA7);
-const Color _whiteFieldColor = Color(0xffFFFFFF);
