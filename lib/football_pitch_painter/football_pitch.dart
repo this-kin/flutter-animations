@@ -9,6 +9,7 @@ class FootballPitch extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+    final orientation = MediaQuery.of(context).orientation;
     return Scaffold(
       backgroundColor: const Color(0xff1B1E25),
       body: Column(
@@ -17,7 +18,7 @@ class FootballPitch extends StatelessWidget {
         children: [
           Container(
             width: width,
-            height: height / 3,
+            height: orientation == Orientation.portrait ? height / 3 : height,
             child: Stack(
               fit: StackFit.expand,
               children: [
@@ -28,7 +29,9 @@ class FootballPitch extends StatelessWidget {
                   itemBuilder: (_, index) {
                     return Container(
                       width: width * 0.066,
-                      height: height / 3,
+                      height: orientation == Orientation.portrait
+                          ? height / 3
+                          : height,
                       decoration: BoxDecoration(
                         color:
                             (index % 2 == 0) ? darkFieldColor : lightFieldColor,
@@ -45,7 +48,12 @@ class FootballPitch extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.all(15),
                     child: CustomPaint(
-                      size: Size((width - 10), ((height / 3) - 10)),
+                      size: Size(
+                          (width - 10),
+                          ((orientation == Orientation.portrait
+                                  ? height / 3
+                                  : height) -
+                              10)),
                       painter: PitchPainter(),
                     ),
                   ),

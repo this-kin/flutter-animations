@@ -1,5 +1,5 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter_animation/football_pitch_painter/football_pitch.dart';
 
 void main() {
