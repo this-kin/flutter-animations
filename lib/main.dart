@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter_animation/football_pitch_painter/football_pitch.dart';
+import 'package:flutter_animation/messenger_chat_head/messenger_chat_head.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const FootballPitch(),
+      home: const MessengerChat(),
     );
   }
 }
