@@ -10,11 +10,16 @@ class PaginationAnimation extends StatefulWidget {
 }
 
 class _PaginationAnimationState extends State<PaginationAnimation> {
+  /// This variable holds the new value of the operation
   ///
   int _counter = 0;
 
+  /// This variable holds the old value of the operation
+  ///
   int? _prevCounter = 0;
 
+  /// This is a boolean variable that let's us perform a reverse/forward
+  /// animation according to the operation made [increment - decrement]
   bool _isIncremented = true;
 
   @override
@@ -35,7 +40,7 @@ class _PaginationAnimationState extends State<PaginationAnimation> {
         alignment: Alignment.center,
         child: Container(
             decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.3),
+              color: paginationGreyColor,
               borderRadius: BorderRadius.circular(50),
             ),
             child: Padding(
@@ -44,12 +49,10 @@ class _PaginationAnimationState extends State<PaginationAnimation> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
-                    hoverColor: Colors.black,
+                    hoverColor: paginationBlackColor,
                     style: ButtonStyle(
-                      padding:
-                          MaterialStateProperty.all(const EdgeInsets.all(15)),
-                      backgroundColor:
-                          MaterialStateProperty.all(paginationBgColor),
+                      padding: padding,
+                      backgroundColor: paginationColor,
                     ),
                     onPressed: () {
                       // decrement
@@ -83,7 +86,7 @@ class _PaginationAnimationState extends State<PaginationAnimation> {
                                   "$_prevCounter",
                                   style: const TextStyle(
                                     fontSize: 15,
-                                    color: Colors.black,
+                                    color: paginationBlackColor,
                                   ),
                                 ),
                               ),
@@ -107,17 +110,15 @@ class _PaginationAnimationState extends State<PaginationAnimation> {
                     "of 15",
                     style: TextStyle(
                       fontSize: 17,
-                      color: Colors.black,
+                      color: paginationBlackColor,
                     ),
                   ),
                   const SizedBox(width: 15),
                   IconButton(
-                    hoverColor: Colors.black,
+                    hoverColor: paginationBlackColor,
                     style: ButtonStyle(
-                      padding:
-                          MaterialStateProperty.all(const EdgeInsets.all(15)),
-                      backgroundColor:
-                          MaterialStateProperty.all(paginationBgColor),
+                      padding: padding,
+                      backgroundColor: paginationColor,
                     ),
                     onPressed: () {
                       // increment
