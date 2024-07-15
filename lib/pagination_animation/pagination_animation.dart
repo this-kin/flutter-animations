@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation/messenger_chat_bubbles/constants/app_constants.dart';
 import 'package:flutter_animation/pagination_animation/constants/color_constants.dart';
 
 class PaginationAnimation extends StatefulWidget {
@@ -67,12 +66,12 @@ class _PaginationAnimationState extends State<PaginationAnimation> {
                 const SizedBox(width: 15),
                 TweenAnimationBuilder<double>(
                   key: UniqueKey(),
-                  duration: kDuration,
+                  duration: const Duration(milliseconds: 300),
                   tween: Tween(begin: 0.0, end: 1.0),
                   builder: (context, value, child) {
                     /// This variable holds the position of the first [Text] in the stack
                     /// remember Stack are LIFD (Last In First Display) so we are saying if
-                    /// the operation is an increment minus [5] from the animation value and
+                    /// the operation is an increment minus [-5] from the animation value and
                     /// whatever the answer is add it to the position of the widget and the
                     /// Y index (Vertically) [The result is going to be negative, which
                     /// means the movement is going up] and if the the operation is a
@@ -85,7 +84,7 @@ class _PaginationAnimationState extends State<PaginationAnimation> {
 
                     /// This variable holds the position of the last [Text] in the stack
                     /// remember Stack are LIFD (Last In First Display) so we are saying if
-                    /// the operation is an increment minus [5] from the animation value and
+                    /// the operation is an increment minus [-5] from the animation value and
                     /// whatever the answer is add it to the position of the widget and the
                     /// Y index (Vertically) [The result is going to be negative, which
                     /// means the movement is going up] and if the the operation is a
