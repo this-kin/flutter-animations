@@ -34,6 +34,10 @@ Dart 3.2.3
 |<img src="screenshots/football_pitch_portrait.png" width="400">|<img src="screenshots/football_pitch_landscape.png" width="400">|
 
 
+# Pagination Animation Screenshot
+<img src="screenshots/pagination_animation.gif" width="400">
+
+
 # Command
 ### Install dependencies
 
