@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
-import 'package:flutter_animation/pagination_animation/pagination_animation.dart';
+import 'package:flutter_animation/twitter_birthday_ballon/twitter_birthday_animation.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const PaginationAnimation(),
+      home: const BirthdayAnimation(),
     );
   }
 }
