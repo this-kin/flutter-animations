@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:flutter_animation/mac_dock_maginification/mac_dock_magnification.dart';
 import 'package:flutter_animation/twitter_birthday_ballon/twitter_birthday_animation.dart';
 
 void main() {
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const BirthdayAnimation(),
+      home: const MacDockMagnification(),
     );
   }
 }
