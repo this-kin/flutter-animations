@@ -16,7 +16,7 @@ class FootballPitch extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          SizedBox(
             width: width,
             height: orientation == Orientation.portrait ? height / 3 : height,
             child: Stack(

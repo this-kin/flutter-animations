@@ -90,7 +90,7 @@ class _BirthdayAnimationState extends State<BirthdayAnimation>
                         ? TextButton(
                             style: ButtonStyle(
                               backgroundColor:
-                                  MaterialStateProperty.all(Colors.blueAccent),
+                                  WidgetStateProperty.all(Colors.blueAccent),
                             ),
                             onPressed: () {
                               //  start animation
